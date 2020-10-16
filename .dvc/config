@@ -1,0 +1,4 @@
+[core]
+    remote = bertsbucket
+['remote "bertsbucket"']
+    url = s3://dvc-livedemo.bertatcodecentric.de/dvc-livedemo
