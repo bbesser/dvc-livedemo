@@ -1,0 +1,24 @@
+stages:
+  load:
+    cmd: python code/load.py
+    deps:
+    - config/load.json
+    outs:
+    - data
+  train:
+    cmd: python -B code/train.py
+    deps:
+    - config/train.json
+    - data
+    outs:
+    - model.h5
+    plots:
+    - history.csv:
+        cache: false
+  evaluate:
+    cmd: python -B code/evaluate.py
+    deps:
+    - model.h5
+    metrics:
+    - metrics.json:
+        cache: false

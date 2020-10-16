@@ -1,0 +1,28 @@
+load:
+  cmd: python code/load.py
+  deps:
+  - path: config/load.json
+    md5: 191c2d5e1cfc5bac140469574de28374
+  outs:
+  - path: data
+    md5: 1287609689d1fd5d02535e385e00eac1.dir
+train:
+  cmd: python -B code/train.py
+  deps:
+  - path: config/train.json
+    md5: 1aa91b7816083b8ff118ae4f1e6ce5a8
+  - path: data
+    md5: 1287609689d1fd5d02535e385e00eac1.dir
+  outs:
+  - path: history.csv
+    md5: d9e4f2d30da6d75dc70caf4693119b0e
+  - path: model.h5
+    md5: 6cba440f1e1a58615244bca7edd5c1d1
+evaluate:
+  cmd: python -B code/evaluate.py
+  deps:
+  - path: model.h5
+    md5: 6cba440f1e1a58615244bca7edd5c1d1
+  outs:
+  - path: metrics.json
+    md5: cd1e89377bb5f4f134d1cb028d63ef8a
