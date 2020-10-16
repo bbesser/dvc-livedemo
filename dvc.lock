@@ -10,19 +10,19 @@ train:
   cmd: python -B code/train.py
   deps:
   - path: config/train.json
-    md5: 1aa91b7816083b8ff118ae4f1e6ce5a8
+    md5: 96e445bc2a3ecdf214b90a093386a5ec
   - path: data
     md5: 1287609689d1fd5d02535e385e00eac1.dir
   outs:
   - path: history.csv
-    md5: d9e4f2d30da6d75dc70caf4693119b0e
+    md5: 28f01cb72978b50b4c18ce283fd5019b
   - path: model.h5
-    md5: 6cba440f1e1a58615244bca7edd5c1d1
+    md5: de5fc74fac868ba52f73d3afddfb4328
 evaluate:
   cmd: python -B code/evaluate.py
   deps:
   - path: model.h5
-    md5: 6cba440f1e1a58615244bca7edd5c1d1
+    md5: de5fc74fac868ba52f73d3afddfb4328
   outs:
   - path: metrics.json
-    md5: cd1e89377bb5f4f134d1cb028d63ef8a
+    md5: 7c3c9cb6e9c739aeee9b6301b6406296
